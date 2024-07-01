@@ -7,9 +7,9 @@ module.exports = {
   async execute(senderId, args, pageAccessToken, sendMessage) {
     const prompt = args.join(' ');
     try {
-      const apiUrl = `https://deku-rest-api-3ijr.onrender.com/gpt4?prompt=${encodeURIComponent(prompt)}&uid=${senderId}`;
+      const apiUrl = `https://gpt4withcustommodel.onrender.com/gpt?query=${encodeURIComponent(prompt)}&model=gpt-4`;
       const response = await axios.get(apiUrl);
-      const text = response.data.gpt4;
+      const text = response.data.response;
 
       // Split the response into chunks if it exceeds 2000 characters
       const maxMessageLength = 2000;
